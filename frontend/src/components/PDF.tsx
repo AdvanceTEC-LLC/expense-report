@@ -2,7 +2,7 @@
  * @file PDF.tsx - ./frontend/src/components
  * @description Component to generate PDF reports from project and expense data.
  * @author tanujk
- * @date Created: 2024-10-02 | Last Modified: 2024-10-02
+ * @date Created: 2024-10-02 | Last Modified: 2025-03-13
  * @version 1.0.0
  * @license MIT
  * @usage Pass in `report.projects` and `name` props to render a detailed expense report.
