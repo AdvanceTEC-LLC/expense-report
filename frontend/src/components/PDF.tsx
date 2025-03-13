@@ -33,6 +33,7 @@ import ATECLogo from '/images/ATEC-pdf-logo.png'
 import Button from './Button'
 import { Subtitle, Title } from './Text'
 import Container from './Container'
+import { users } from '../data/users'
 
 interface PDFProps {
   report: ReportType
@@ -412,10 +413,13 @@ const PDF: React.FC<PDFProps> = ({ report }) => {
         pageMargin
       )
       currentY -= lineHeight * 2
+      const userHasMonthlyCarAllowance = users.find(
+        (user) => user.name === report.user.name
+      )?.monthlyCarAllowance
 
       project.expenses.forEach((expense, index) => {
         // Mileage Calculation
-        if (expense.costCategory === 'Mileage') {
+        if (expense.costCategory === 'Mileage' && !userHasMonthlyCarAllowance) {
           const roundedMileage = Number(expense.mileage?.toFixed(1))
           if (expense.mileage) {
             if (expense.roundTrip) {
